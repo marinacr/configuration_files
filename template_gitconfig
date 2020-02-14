@@ -1,0 +1,11 @@
+[user]
+	email =
+	name =
+[alias]
+	co = checkout
+	ci = commit
+	civ = commit --verbose
+	st = status
+	br = branch
+[color]
+	ui = true

@@ -1,0 +1,35 @@
+#!/bin/bash
+
+config_dir=$HOME/config_files
+ignore_files=('README.md' "$(basename $0)" '.git' 'template_gitconfig')
+
+#git configuration
+cp $config_dir/template_gitconfig $HOME/.gitconfig
+read -p 'Git mail : ' mail
+read -p 'Git name : ' name
+git config --global user.name "$name"
+git config --global user.email $mail
+
+#symbol link creation
+for file in `ls -A $config_dir`
+do
+    ignore_flag=0
+    for ignore_file in ${ignore_files[*]}
+    do
+        if [ $file = $ignore_file ]
+        then
+            ignore_flag=1
+        fi
+    done
+    if [ $ignore_flag -ne 1 ]
+    then
+        if [ -e $HOME/$file ]
+        then
+            #backup existing conf file
+            mv $HOME/$file $HOME/$file.old
+        fi
+        echo ln -s $config_dir/$file $HOME/$file
+        ln -s $config_dir/$file $HOME/$file
+
+    fi
+done
