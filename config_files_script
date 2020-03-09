@@ -23,7 +23,7 @@ do
     done
     if [ $ignore_flag -ne 1 ]
     then
-        if [ -e $HOME/$file ]
+        if [ -e $HOME/$file -a ! -h $HOME/$file ]
         then
             #backup existing conf file
             mv $HOME/$file $HOME/$file.old
