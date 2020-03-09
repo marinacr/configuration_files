@@ -1,0 +1,3 @@
+# Mapping to search the history
+"\ep": history-search-backward
+"\en": history-search-forward
