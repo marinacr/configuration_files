@@ -23,7 +23,7 @@ do
     done
     if [ $ignore_flag -ne 1 ]
     then
-        if [ -e $HOME/$file -a ! -h $HOME/$file ]
+        if [ -e $HOME/$file -a ! -h $HOME/$file ] # file exist and file is not a symbolic link
         then
             #backup existing conf file
             mv $HOME/$file $HOME/$file.old
