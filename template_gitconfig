@@ -4,7 +4,7 @@
 [alias]
 	co = checkout
 	ci = commit
-	civ = commit --verbose
+	civ = commit -s --verbose
 	st = status
 	br = branch
 [color]
